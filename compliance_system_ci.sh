@@ -1,5 +1,6 @@
 #!/bin/sh
 
+cp ./common.sh ../compliance-system-repo/common.sh
 cd ../compliance-system-repo
 set -x
 apk add --no-cache curl curl-dev bash py-pip
