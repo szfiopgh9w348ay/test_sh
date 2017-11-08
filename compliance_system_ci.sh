@@ -1,13 +1,10 @@
 #!/bin/sh
-
-cp ./common.sh ../compliance-system-repo/common.sh
-cd ../compliance-system-repo
 set -x
-apk add --no-cache curl curl-dev bash py-pip
-pip install docker-compose
-docker-compose --version
-./common.sh
-dockerd
+
+cd ../compliance-system-repo && \
+apk add --no-cache curl curl-dev bash py-pip && \
+pip install docker-compose && \
+docker-compose --version && \
 cp dot_env_example .env && \
 ./deploy.sh TEST && \
 docker-compose exec django pytest -v
